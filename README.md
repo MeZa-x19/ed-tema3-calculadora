@@ -1,4 +1,4 @@
-# ed-tema3-calculadora
+# ed-tema3-gestor-tareas
 
 ## Integrantes
 - MeZa_x19 (David)
