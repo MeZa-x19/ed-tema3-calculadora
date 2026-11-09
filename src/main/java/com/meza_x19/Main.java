@@ -7,7 +7,7 @@ public class Main { // Creamos clase principal
     public static void main(String[] args) { // Método main
 
         // Creamos variables
-        int opciónMenú = -1; // Opción que elige el usuario
+        int opciónMenú = -2; // Opción que elige el usuario
 
         Scanner sc = new Scanner(System.in); // Creamos objeto Scanner
 
