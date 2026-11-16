@@ -9,6 +9,9 @@ public class Main { // Creamos clase principal
         // Creamos variables
         int opciónMenú = -1;
 
+        int número1;
+        int número2;
+
         Scanner sc = new Scanner(System.in); // Creamos objeto Scanner
 
         System.out.println(""); // Bienvenida al programa
@@ -34,33 +37,15 @@ public class Main { // Creamos clase principal
                 opciónMenú = sc.nextInt(); // Tomamos la opción del usuario
                 System.out.println("");
 
-                switch(opciónMenú) { // En función de la opción elegida por el usuario
+                número1 = pedirNúmero(sc, opciónMenú); // Pedimos número 1
+                número2 = pedirNúmero(sc, opciónMenú); // Pedimos número 2
+                imprimirResultado(opciónMenú, número1, número2); // Imprimimos resultado en función de la opción
 
-                    case 1: // Caso sumar
-                        //TODO
-                    break;
+            } catch (ArithmeticException e) { // Tipo de dato introducido incorrecto
 
-                    case 2: // Caso restar
-                        //TODO
-                    break;
-
-                    case 3: // Caso multiplicar
-                        //TODO
-                    break;
-
-                    case 4: // Caso dividir
-                        //TODO
-                    break;
-
-                    case 0: // Caso salir
-                        System.out.print("Saliendo del programa... ");
-                    break;
-
-                    default: // Otra opción
-                        System.out.println("La opción seleccionada no es válida. Inténtelo de nuevo.");
-                        System.out.println("");
-
-                }
+                System.out.println("");
+                System.out.println("No se puede dividir un valor entre 0 (" + e + "). Inténtelo de nuevo");
+                System.out.println("");
 
             } catch (java.util.InputMismatchException e) { // Tipo de dato introducido incorrecto
 
@@ -86,5 +71,62 @@ public class Main { // Creamos clase principal
         System.out.println("");
 
     } // Aquí termina el método main
+
+    public static int pedirNúmero(Scanner sc, int opc) { // Tomamos un número desde teclado
+
+        if (opc != 0) { // Siempre que el usuario no haya elegido salir
+
+            System.out.print("Introduce tu número: ");
+            int num = sc.nextInt();
+            return num; // Devolvemos el número que le pedimos al usuario
+
+        } else { // Si el usuario eligió salir
+
+            return 0; // No hacemos nada
+
+        }
+
+    }
+
+    public static void imprimirResultado(int opc, int n1, int n2) { // Imprimimos resultado de la operación
+
+        switch (opc) { // En función de la opción elegida por el usuario
+
+            case 1: // Caso suma
+                System.out.println("");
+                System.out.println("El resultado de tu suma es: " + (n1 + n2));
+                System.out.println("");
+                break;
+
+            case 2: // Caso resta
+                System.out.println("");
+                System.out.println("El resultado de tu resta es: " + (n1 - n2));
+                System.out.println("");
+                break;
+
+            case 3: // Caso multiplicación
+                System.out.println("");
+                System.out.println("El resultado de tu multiplicación es: " + (n1 * n2));
+                System.out.println("");
+                break;
+
+            case 4: // Caso división
+                System.out.println("");
+                System.out.println("El resultado de tu división es: " + (n1 / n2));
+                System.out.println("");
+                break;
+
+            case 0: // Caso salir
+                System.out.print("Saliendo del programa... ");
+                break;
+
+            default: // Otra opción
+                System.out.println("");
+                System.out.println("La opción seleccionada no es válida. Inténtelo de nuevo.");
+                System.out.println("");
+
+        }
+
+    }
 
 } // Aquí termina la clase
